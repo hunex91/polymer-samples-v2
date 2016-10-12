@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="my-style-1">
+  <template>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>Hello I am [[title]]</h2>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'my-style-1',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'my-style-1',
+        },
+      }
+
+    });
+  </script>
+</dom-module>

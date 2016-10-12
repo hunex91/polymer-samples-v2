@@ -1,0 +1,58 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../../bower_components/paper-radio-button/paper-radio-button.html">
+
+<link rel="import" href="behavior-2.html">
+
+<dom-module id="sample-behaviors-2">
+  <template>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>An example with extending and using a behavior.</p>
+
+    <div>[[localize('hello')]]</div>
+    <div>
+      Language:
+      <paper-radio-group selected="{{selected}}">
+        <paper-radio-button name="en">EN</paper-radio-button>
+        <paper-radio-button name="hu">HU</paper-radio-button>
+        <paper-radio-button name="ro">RO</paper-radio-button>
+      </paper-radio-group>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-behaviors-2',
+
+      behaviors: [ Namespace.LocalizationBehavior ],
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-behaviors-2',
+        },
+        selected: {
+          type: String,
+          value: 'en',
+          notify: true,
+          observer: '_selectedChanged'
+        }
+      },
+
+      _selectedChanged: function(value) {
+        this.setLanguage(value);
+      }
+
+    });
+  </script>
+</dom-module>

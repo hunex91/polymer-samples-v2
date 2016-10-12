@@ -1,0 +1,68 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../my-shared-styles.html">
+<link rel="import" href="my-greeting.html">
+
+<dom-module id="sample-data-3">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>This is a two way data binding example. Changes made to the my-greeting element's name property (or path) will flow back here. Also if you change this element's name property (or path) it will be reflected down in the my-greeting element.</p>
+
+    <span>My name is [[name]].</span>
+    <my-greeting name="{{name}}"></my-greeting>
+    <paper-button raised on-tap="_onTap">Randomize name</paper-button>
+
+  </template>
+
+  <script>
+
+    const availableNames1 = [
+      'Lynetta',
+      'Ruthann',
+      'Vida',
+      'Tony',
+      'Miesha',
+      'Lorean',
+      'Freddy',
+      'Francie',
+      'Lakisha',
+      'Antonette'
+    ];
+
+    Polymer({
+
+      is: 'sample-data-3',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-data-3',
+        },
+        name: {
+          type: String,
+          notify: true
+        }
+      },
+
+      _onTap: function(event) {
+        this.name = this._random(availableNames1);
+      },
+
+      _random: function(items) {
+        var item = items[Math.floor(Math.random()*items.length)];
+        return item;
+      }
+
+    });
+  </script>
+</dom-module>

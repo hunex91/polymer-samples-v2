@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-properties-2">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>There are multiple property types: String, Number, Boolean, Array and Object.</p>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-properties-2',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-properties-2'
+        },
+        year: {
+          type: Number,
+          value: 2016
+        },
+        isHappy: {
+          type: Boolean,
+          value: true
+        },
+        colors: {
+          type: Array,
+          value: function() {
+            return [
+              'blue', 'red', 'purple'
+            ];
+          }
+        },
+        details: {
+          type: Object,
+          value: function() {
+            return {
+              name: 'John',
+              age: 24,
+              alive: true
+            };
+          }
+        }
+      }
+
+    });
+  </script>
+</dom-module>

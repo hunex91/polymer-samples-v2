@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="my-style-2.html">
+
+<dom-module id="sample-style-2">
+  <template>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+      my-style-2 {
+        --custom-title-color: blue;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>Example with custom CSS property.</p>
+
+    <my-style-2></my-style-2>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-style-2',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-style-2',
+        },
+      }
+
+    });
+  </script>
+</dom-module>

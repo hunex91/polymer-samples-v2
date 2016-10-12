@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-dom-if">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>Example using the dom-if template. The template will be stamped only when the if expression become true.</p>
+
+    <paper-toggle-button checked="{{show}}">Show secret / Hide secret</paper-toggle-button>
+    <div class="content">
+      <template is="dom-if" if="[[show]]">
+        <div>Psst, this is a secret :)</div>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-dom-if',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-dom-if',
+        },
+        show: {
+          type: Boolean,
+          value: false
+        }
+      }
+
+    });
+  </script>
+</dom-module>

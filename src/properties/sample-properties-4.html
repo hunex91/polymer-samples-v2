@@ -1,0 +1,53 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-properties-4">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>An example using the readOnly option. You can't change the property's value outside of the element.</p>
+
+    <div>Age: [[age]]</div>
+    <paper-button raised on-tap="_makeMeYounger">Make me younger</paper-button>
+    <paper-button raised on-tap="_makeMeOlder">Make me older</paper-button>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-properties-4',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-properties-4'
+        },
+        age: {
+          type: Number,
+          value: 30,
+          readOnly: true
+        }
+      },
+
+      _makeMeYounger: function() {
+        this._setAge(18);
+      },
+
+      _makeMeOlder: function() {
+        this._setAge(30);
+      }
+
+    });
+  </script>
+</dom-module>

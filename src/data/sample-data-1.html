@@ -1,0 +1,58 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-data-1">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>The data system is based on paths. There are 5 data paths in this example:</p>
+    <ul>
+      <li>title</li>
+      <li>user</li>
+      <li>user.firstName</li>
+      <li>user.lastName</li>
+      <li>user.age</li>
+    </ul>
+
+    <h3>User</h3>
+    <div>
+      <div>Name: [[user.firstName]] [[user.lastName]]</div>
+      <div>Age: [[user.age]]</div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-data-1',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-data-1',
+        },
+        user: {
+          type: Object,
+          value: function() {
+            return {
+              firstName: 'John',
+              lastName: 'Smith',
+              age: 25
+            };
+          }
+        }
+      }
+
+    });
+  </script>
+</dom-module>

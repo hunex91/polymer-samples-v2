@@ -1,0 +1,36 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-properties-3">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>Here is an example with using the reflectToAttribute option.</p>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-properties-3',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-properties-3',
+          reflectToAttribute: true
+        }
+      }
+
+    });
+  </script>
+</dom-module>

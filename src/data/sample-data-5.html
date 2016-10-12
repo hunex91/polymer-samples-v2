@@ -1,0 +1,71 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-data-5">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+      paper-input {
+        width: 100px;
+        text-align: center;
+      }
+
+      .container {
+        @apply(--layout-horizontal);
+      }
+
+      .sign {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>As you can see you can use the data binding without declaring properties. Also this is an example using a computed binding.</p>
+
+    <div class="container">
+      <paper-input no-label-float type="number" value="{{a}}"></paper-input>
+      <div class="sign">+</div>
+      <paper-input no-label-float type="number" value="{{b}}"></paper-input>
+      <div class="sign">=</div>
+      <paper-input no-label-float disabled value="{{_calculateResult(a, b)}}"></paper-input>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-data-5',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-data-5',
+        },
+
+      },
+
+      ready: function() {
+        this.set('a', 20);
+        this.set('b', 22);
+      },
+
+      _calculateResult: function(a, b) {
+        if (!a) return '';
+        if (!b) return '';
+        return Number(a) + Number(b);
+      }
+
+    });
+  </script>
+</dom-module>

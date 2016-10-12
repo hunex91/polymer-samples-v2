@@ -1,0 +1,49 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-properties-6">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <p>You can observe the changes made to the properties.</p>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'sample-properties-6',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-properties-6'
+        },
+        firstName: String,
+        lastName: String,
+        fullName: {
+          type: String,
+          observer: '_fullNameObserver'
+        }
+      },
+
+      observers: [
+        '_nameChanged(firstName, lastName)'
+      ],
+
+      _fullNameObserver: function(name) {
+        console.log('Name changed to: ' + name);
+      }
+
+    });
+  </script>
+</dom-module>
