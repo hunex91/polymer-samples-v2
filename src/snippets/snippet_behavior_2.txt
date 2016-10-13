@@ -1,0 +1,49 @@
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+
+<script>
+
+  window.Namespace = window.Namespace || {};
+
+  const available = [
+    'en',
+    'hu',
+    'ro'
+  ];
+
+  LocalizationBehaviorImpl = {
+    properties: {
+      language: {
+        value: 'en'
+      },
+      resources: {
+        value: function() {
+          return {
+            'en': { 'hello': 'Hello!' },
+            'hu': { 'hello': 'Szia!' },
+            'ro': { 'hello': 'Salut!' }
+          }
+        }
+      }
+
+    },
+    setLanguage: function(language) {
+      var validated = this.validateLanguage(language);
+      this.language = validated;
+    },
+    getLanguage: function() {
+      return this.language;
+    },
+    validateLanguage: function(language) {
+      language = language.toLowerCase().replace(/\s/g, '');
+      if (available.indexOf(language) > -1) {
+        return language;
+      }
+      else {
+        return 'en';
+      }
+    }
+  };
+
+  Namespace.LocalizationBehavior = [ Polymer.AppLocalizeBehavior, LocalizationBehaviorImpl ]
+
+</script>

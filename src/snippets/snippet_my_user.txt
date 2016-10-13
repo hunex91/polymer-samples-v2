@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="my-user">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h3>User</h3>
+    <div>
+      <div>Name: [[user.firstName]] [[user.lastName]]</div>
+      <div>Age: [[user.age]]</div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'my-user',
+      properties: {
+        user: {
+          type: Object,
+          value: function() { return {}; }
+        }
+      }
+    });
+  </script>
+</dom-module>
