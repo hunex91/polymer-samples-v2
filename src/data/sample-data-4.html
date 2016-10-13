@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 
+<link rel="import" href="../behaviors/behavior-1.html">
 <link rel="import" href="../my-shared-styles.html">
 
 <dom-module id="sample-data-4">
@@ -32,23 +33,11 @@
   </template>
 
   <script>
-
-    const availableNames2 = [
-      'Lynetta',
-      'Ruthann',
-      'Vida',
-      'Tony',
-      'Miesha',
-      'Lorean',
-      'Freddy',
-      'Francie',
-      'Lakisha',
-      'Antonette'
-    ];
-
     Polymer({
 
       is: 'sample-data-4',
+
+      behaviors: [ Namespace.RandomGeneratorBehavior ],
 
       properties: {
         title: {
@@ -68,13 +57,13 @@
       },
 
       _onTap1: function(event) {
-        this.user.name = this._random(availableNames2); // this won't trigger data flow
+        this.user.name = this.randomName(); // this won't trigger data flow
         // this.set('user.name', 'Sarah'); // this would
       },
 
       _onTap2: function(event) {
         // this.user.name = 'Sarah'; // this won't trigger data flow
-        this.set('user.name', this._random(availableNames2)); // this would
+        this.set('user.name', this.randomName()); // this would
       },
 
       _onTapUp: function(event) {
@@ -83,11 +72,6 @@
 
       _onTapDown: function(event) {
         this.set('user.age', this.user.age - 1);
-      },
-
-      _random: function(items) {
-        var item = items[Math.floor(Math.random()*items.length)];
-        return item;
       }
 
     });

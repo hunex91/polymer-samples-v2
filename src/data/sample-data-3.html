@@ -1,8 +1,10 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../behaviors/behavior-1.html">
 <link rel="import" href="../my-shared-styles.html">
 <link rel="import" href="my-greeting.html">
+
 
 <dom-module id="sample-data-3">
   <template>
@@ -25,23 +27,11 @@
   </template>
 
   <script>
-
-    const availableNames1 = [
-      'Lynetta',
-      'Ruthann',
-      'Vida',
-      'Tony',
-      'Miesha',
-      'Lorean',
-      'Freddy',
-      'Francie',
-      'Lakisha',
-      'Antonette'
-    ];
-
     Polymer({
 
       is: 'sample-data-3',
+
+      behaviors: [ Namespace.RandomGeneratorBehavior ],
 
       properties: {
         title: {
@@ -55,12 +45,7 @@
       },
 
       _onTap: function(event) {
-        this.name = this._random(availableNames1);
-      },
-
-      _random: function(items) {
-        var item = items[Math.floor(Math.random()*items.length)];
-        return item;
+        this.name = this.randomName();
       }
 
     });

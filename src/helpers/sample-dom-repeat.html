@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-material/paper-material.html">
 
+<link rel="import" href="../behaviors/behavior-1.html">
 <link rel="import" href="../my-shared-styles.html">
 
 <dom-module id="sample-dom-repeat">
@@ -49,21 +50,11 @@
   </template>
 
   <script>
-
-    const availableColors = [
-      { name: 'Red' , color: '#F44336' },
-      { name: 'Cyan', color: '#00BCD4' },
-      { name: 'Amber', color: '#FFC107' },
-      { name: 'Teal', color: '#009688' },
-      { name: 'Blue', color: '#2196F3' },
-      { name: 'Orange', color: '#FF9800' },
-      { name: 'Pink', color: '#E91E63' },
-      { name: 'Purple', color: '#673AB7' }
-    ];
-
     Polymer({
 
       is: 'sample-dom-repeat',
+
+      behaviors: [ Namespace.RandomGeneratorBehavior ],
 
       properties: {
         title: {
@@ -82,12 +73,7 @@
       },
 
       _onTap: function(event) {
-        this.push('colors', this._random(availableColors));
-      },
-
-      _random: function(items) {
-        var item = items[Math.floor(Math.random()*items.length)];
-        return item;
+        this.push('colors', this.randomColor());
       },
 
       _computeFilter: function(search) {
