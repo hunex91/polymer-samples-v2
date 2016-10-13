@@ -1,0 +1,22 @@
+<link rel="import" href="events/sample-events-4.html">
+
+<dom-module id="page-events">
+  <template>
+    ...
+  </template>
+  <script>
+    Polymer({
+      is: 'page-events',
+      listeners: {
+        'sample-event-increase': '_sampleEventIncrease',
+        'sample-event-decrease': '_sampleEventDecrease'
+      },
+      _sampleEventIncrease: function(event) {
+        this.toast('Increse, new value: ' + event.detail);
+      },
+      _sampleEventDecrease: function(event) {
+        this.toast('Decrease, new value: ' + event.detail);
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="my-element">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+      h3 {
+        color: #FF5722;
+      }
+    </style>
+    <h3>User</h3>
+    <div>
+      <div>Name: [[name]]</div>
+      <div>Age: [[age]]</div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'my-element',
+      properties: {
+        name: String,
+        age: Number
+      },
+      observers: [
+        '_ageChanged(age)'
+      ],
+      listeners: {
+        'tap': '_onTap'
+      },
+      ready: function() {
+        // this is called when the element is created
+      },
+      attached: function() {
+        // this is called when the element is stamped to the DOM
+      },
+      tellAJoke: function() {
+        // instance method
+      },
+      _ageChanged: function(age) {
+        // property change listener
+      },
+      _onTap: function(event) {
+        // event listener
+      }
+    });
+  </script>
+</dom-module>

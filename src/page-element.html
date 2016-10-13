@@ -12,8 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="code-snippet.html">
 
-<link rel="import" href="data/sample-data-1.html">
-<link rel="import" href="data/sample-data-2.html">
+<link rel="import" href="element/my-element.html">
 
 <dom-module id="page-element">
   <template>
@@ -26,18 +25,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <sample-data-1 class="card-description"></sample-data-1>
+      <my-element class="card-description" name="John Smith" age="29"></my-element>
       <div class="horizontal-delimiter"></div>
-      <code-snippet file="src/snippets/snippet_data_1.txt"></code-snippet>
+      <code-snippet source-name="my-element.html" file="src/snippets/snippet_my_element.txt"></code-snippet>
+      <div class="horizontal-delimiter"></div>
+      <code-snippet source-name="page-element.html" file="src/snippets/snippet_page_element.txt"></code-snippet>
     </div>
+  </template>
 
-    <div class="card">
-      <sample-data-2 class="card-description"></sample-data-2>
-      <div class="horizontal-delimiter"></div>
-      <code-snippet source-name="sample-data-2.html" file="src/snippets/snippet_data_2.txt"></code-snippet>
-      <div class="horizontal-delimiter"></div>
-      <code-snippet source-name="my-user.html" file="src/snippets/snippet_my_user.txt"></code-snippet>
-    </div>
   <script>
     Polymer({
       is: 'page-element'

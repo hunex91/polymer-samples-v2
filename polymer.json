@@ -3,6 +3,7 @@
   "shell": "src/my-app.html",
   "fragments": [
     "src/page-welcome.html",
+    "src/page-element.html",
     "src/page-properties.html",
     "src/page-data.html",
     "src/page-events.html",
