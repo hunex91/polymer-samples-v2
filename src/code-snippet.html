@@ -1,17 +1,14 @@
 <!--
 @license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+Copyright (c) 2016 Greencoderz. All rights reserved.
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/prism-element/prism-highlighter.html">
 <link rel="import" href="../bower_components/prism-element/prism-theme-default.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
 <dom-module id="code-snippet">
 	<template>
@@ -29,12 +26,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				-o-tab-size: 2;
 				tab-size: 2;
 			}
+			
+			paper-icon-button {
+				position: absolute;
+				top: 0;
+				right: 0px;
+			}
+			
+			.code-container {
+				position: relative;
+			}
 		</style>
 
 		<iron-ajax auto url="[[file]]" handle-as="text" on-response="handleResponse"></iron-ajax>
-
 		<prism-highlighter></prism-highlighter>
-		<pre id="output"></pre>
+		<div class="code-container">
+			<pre id="output"></pre>
+			<paper-icon-button id="copyButton" icon="content-copy" title="copy to clipboard" on-tap="_copyToClipboard">
+			</paper-icon-button>
+		</div>
 
 	</template>
 
@@ -52,9 +62,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       handleResponse: function(req) {
-        console.log(req.detail.response);
         this.$.output.innerHTML = this.highlight(req.detail.response, this.lang);
-		  }
+		  },
+
+      _copyToClipboard: function() {
+        var snipRange = document.createRange();
+        snipRange.selectNodeContents(this.$.output);
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(snipRange);
+        var result = false;
+        try {
+          result = document.execCommand('copy');
+          this.$.copyButton.icon = 'done';
+        } catch (err) {
+          // Copy command is not available
+          Polymer.Base._error(err);
+          this.$.copyButton.icon = 'error';
+        }
+        // Return to the copy button after a second.
+        setTimeout(this._resetCopyButtonState.bind(this), 1000);
+        selection.removeAllRanges();
+        return result;
+      },
+
+      _resetCopyButtonState: function() {
+        this.$.copyButton.icon = 'content-copy';
+      }
     });
   </script>
 </dom-module>

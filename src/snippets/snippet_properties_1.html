@@ -1,31 +1,20 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
 <link rel="import" href="../my-shared-styles.html">
-<link rel="import" href="../code-snippet.html">
 
 <dom-module id="sample-properties-1">
   <template>
     <style include="my-shared-styles"></style>
     <style>
-
       :host {
         display: block;
       }
-
     </style>
-
     <h2>[[title]]</h2>
     <p>You can declare a property by adding it to the properties object.</p>
-
-    <code-snippet file="src/snippets/snippet_properties_1.html"></code-snippet>
-
   </template>
-
   <script>
     Polymer({
-
       is: 'sample-properties-1',
-
       properties: {
         title: {
           type: String,
@@ -33,7 +22,6 @@
         },
         name: String
       }
-
     });
   </script>
 </dom-module>
