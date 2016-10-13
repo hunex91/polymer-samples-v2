@@ -4,22 +4,16 @@
 <dom-module id="my-style-3">
   <template>
     <style>
-
       :host {
         display: block;
       }
-
       .title {
         color: #9E9E9E;
         @apply(--custom-title-mixin);
       }
-
     </style>
-
     <paper-material class="title" elevation="2">CENTER</paper-material>
-
   </template>
-
   <script>
     Polymer({
       is: 'my-style-3'

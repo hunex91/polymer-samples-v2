@@ -4,11 +4,9 @@
 <dom-module id="my-style-2">
   <template>
     <style>
-
       :host {
         display: block;
       }
-
       paper-material {
         padding: 16px;
         background-color: #00BCD4;
@@ -16,17 +14,12 @@
         font-weight: bold;
         text-align: center;
       }
-
       .title {
         color: var(--custom-title-color, #E91E63);
       }
-
     </style>
-
     <paper-material class="title" elevation="2">CENTER</paper-material>
-
   </template>
-
   <script>
     Polymer({
       is: 'my-style-2'

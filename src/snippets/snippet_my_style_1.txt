@@ -4,23 +4,17 @@
 <dom-module id="my-style-1">
   <template>
     <style>
-
       :host {
         display: block;
       }
-
       paper-material {
         padding: 16px;
         font-size: 20px;
         font-weight: bold;
       }
-
     </style>
-
     <paper-material class="fancy" elevation="2">LEFT</paper-material>
-
   </template>
-
   <script>
     Polymer({
       is: 'my-style-1'

@@ -1,7 +1,5 @@
 <script>
-
   window.Namespace = window.Namespace || {};
-
   const randomNamesArray = [
     'Lynetta',
     'Ruthann',
@@ -24,7 +22,6 @@
     { name: 'Pink', color: '#E91E63' },
     { name: 'Purple', color: '#673AB7' }
   ];
-
   RandomGeneratorBehavior = {
     properties: {
 
@@ -43,7 +40,5 @@
       return item;
     }
   };
-
   Namespace.RandomGeneratorBehavior = RandomGeneratorBehavior;
-
 </script>
