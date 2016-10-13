@@ -1,0 +1,60 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/prism-element/prism-highlighter.html">
+<link rel="import" href="../bower_components/prism-element/prism-theme-default.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="code-snippet">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+
+		<style include="prism-theme-default">
+			pre {
+				padding: 0;
+				margin: 0;
+				-moz-tab-size: 2;
+				-o-tab-size: 2;
+				tab-size: 2;
+			}
+		</style>
+
+		<iron-ajax auto url="[[file]]" handle-as="text" on-response="handleResponse"></iron-ajax>
+
+		<prism-highlighter></prism-highlighter>
+		<pre id="output"></pre>
+
+	</template>
+
+	<script>
+    Polymer({
+      is: 'code-snippet',
+      
+      properties: {
+        file: String,
+        lang: String
+      },
+
+      highlight: function(code, lang) {
+        return this.fire('syntax-highlight', {code: code, lang: lang}).detail.code;
+      },
+
+      handleResponse: function(req) {
+        console.log(req.detail.response);
+        this.$.output.innerHTML = this.highlight(req.detail.response, this.lang);
+		  }
+    });
+  </script>
+</dom-module>

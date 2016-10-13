@@ -1,9 +1,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../my-shared-styles.html">
 <link rel="import" href="my-style-2.html">
 
 <dom-module id="sample-style-2">
   <template>
+    <style include="my-shared-styles"></style>
     <style>
 
       :host {
@@ -11,7 +13,7 @@
       }
 
       my-style-2 {
-        --custom-title-color: blue;
+        --custom-title-color: #CDDC39;
       }
 
     </style>

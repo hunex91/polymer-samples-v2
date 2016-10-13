@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
 
 <dom-module id="my-style-2">
   <template>
@@ -8,28 +9,27 @@
         display: block;
       }
 
+      paper-material {
+        padding: 16px;
+        background-color: #00BCD4;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
       .title {
-        color: var(--custom-title-color, red);
+        color: var(--custom-title-color, #E91E63);
       }
 
     </style>
 
-    <h2 class="title">Hello I am [[title]]</h2>
+    <paper-material class="title" elevation="2">CENTER</paper-material>
 
   </template>
 
   <script>
     Polymer({
-
-      is: 'my-style-2',
-
-      properties: {
-        title: {
-          type: String,
-          value: 'my-style-2',
-        },
-      }
-
+      is: 'my-style-2'
     });
   </script>
 </dom-module>
