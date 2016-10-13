@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../my-shared-styles.html">
+<link rel="import" href="my-style-1.html">
+
+<dom-module id="sample-style-1">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-material {
+        padding: 16px;
+        margin-bottom: 8px;
+        background-color: #673AB7;
+        color: #E91E63;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: right;
+      }
+      .fancy {
+        background-color: #FF5722;
+        color: #FF9800;
+        text-align: center;
+      }
+    </style>
+    <h2>[[title]]</h2>
+    <p>Example with style encapsulation.</p>
+    <paper-material elevation="2">RIGHT</paper-material>
+    <paper-material class="fancy" elevation="2">CENTER</paper-material>
+    <my-style-1></my-style-1>
+  </template>
+  <script>
+    Polymer({
+      is: 'sample-style-1',
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-style-1',
+        },
+      }
+    });
+  </script>
+</dom-module>

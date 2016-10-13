@@ -1,36 +1,37 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
 <link rel="import" href="../my-shared-styles.html">
+<link rel="import" href="my-style-3.html">
 
-<dom-module id="sample-properties-1">
+<dom-module id="sample-style-3">
   <template>
     <style include="my-shared-styles"></style>
     <style>
-
       :host {
         display: block;
       }
-
+      my-style-3 {
+        --custom-title-mixin: {
+          padding: 16px;
+          background-color: #795548;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+        };
+      }
     </style>
-
     <h2>[[title]]</h2>
-    <p>You can declare a property by adding it to the properties object.</p>
-
+    <p>Example with custom CSS mixin.</p>
+    <my-style-3></my-style-3>
   </template>
-
   <script>
     Polymer({
-
-      is: 'sample-properties-1',
-
+      is: 'sample-style-3',
       properties: {
         title: {
           type: String,
-          value: 'sample-properties-1'
+          value: 'sample-style-3',
         },
-        name: String
       }
-
     });
   </script>
 </dom-module>

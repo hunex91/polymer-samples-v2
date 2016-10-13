@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../my-shared-styles.html">
+
+<dom-module id="sample-events-2">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>[[title]]</h2>
+    <p>Example using the on-event format to declare an event listener.</p>
+    <paper-button raised on-tap="_onTap">Click me</paper-button>
+    <paper-toast id="toast"></paper-toast>
+  </template>
+  <script>
+    Polymer({
+      is: 'sample-events-2',
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-events-2',
+        },
+      },
+      _onTap: function(event) {
+        this.toast('You clicked on sample-events-2 button');
+      },
+      toast: function(text) {
+        this.$.toast.text = text;
+        this.$.toast.show();
+      }
+    });
+  </script>
+</dom-module>

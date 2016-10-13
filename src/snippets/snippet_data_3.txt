@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../behaviors/behavior-1.html">
+<link rel="import" href="../my-shared-styles.html">
+<link rel="import" href="my-greeting.html">
+
+<dom-module id="sample-data-3">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>[[title]]</h2>
+    <p>This is a two way data binding example. Changes made to the my-greeting element's name property (or path) will flow back here. Also if you change this element's name property (or path) it will be reflected down in the my-greeting element.</p>
+    <span>My name is [[name]].</span>
+    <my-greeting name="{{name}}"></my-greeting>
+    <paper-button raised on-tap="_onTap">Randomize name</paper-button>
+  </template>
+  <script>
+    Polymer({
+      is: 'sample-data-3',
+      behaviors: [ Namespace.RandomGeneratorBehavior ],
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-data-3',
+        },
+        name: {
+          type: String,
+          notify: true
+        }
+      },
+      _onTap: function(event) {
+        this.name = this.randomName();
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../my-shared-styles.html">
+<link rel="import" href="behavior-1.html">
+
+<dom-module id="sample-behaviors-1">
+  <template>
+    <style include="my-shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>[[title]]</h2>
+    <p>In this example we use a simple behavior. It generates random names and colors.</p>
+    <div>Random name: [[randomName()]]</div>
+    <div>Random color: <span>[[_computeColor()]]</span></div>
+  </template>
+  <script>
+    Polymer({
+      is: 'sample-behaviors-1',
+      behaviors: [ Namespace.RandomGeneratorBehavior ],
+      properties: {
+        title: {
+          type: String,
+          value: 'sample-behaviors-1',
+        },
+      },
+      _computeColor: function() {
+        return this.randomColor().name;
+      }
+    });
+  </script>
+</dom-module>

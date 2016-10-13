@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="code-snippet.html">
 
 <link rel="import" href="behaviors/sample-behaviors-1.html">
 <link rel="import" href="behaviors/sample-behaviors-2.html">
@@ -25,11 +26,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <sample-behaviors-1></sample-behaviors-1>
+      <sample-behaviors-1 class="card-description"></sample-behaviors-1>
+      <code-snippet file="src/snippets/snippet_behaviors_1.txt"></code-snippet>
     </div>
 
     <div class="card">
-      <sample-behaviors-2></sample-behaviors-2>
+      <sample-behaviors-2 class="card-description"></sample-behaviors-2>
+      <code-snippet file="src/snippets/snippet_behaviors_2.txt"></code-snippet>
     </div>
   </template>
 

@@ -26,24 +26,40 @@ Copyright (c) 2016 Greencoderz. All rights reserved.
 				-o-tab-size: 2;
 				tab-size: 2;
 			}
-			
-			paper-icon-button {
-				position: absolute;
-				top: 0;
-				right: 0px;
-			}
-			
+
 			.code-container {
 				position: relative;
+				padding-top: 15px;
+				margin: 0;
+				font-size: 13px;
+			}
+
+			paper-icon-button {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+			}
+
+      .source {
+        position: absolute;
+				top: 8px;
+				left: 8px;
+        color: #757575;
+      }
+
+			#output {
+				color: #212121;
+				padding: 20px;
+				overflow: auto;
 			}
 		</style>
 
 		<iron-ajax auto url="[[file]]" handle-as="text" on-response="handleResponse"></iron-ajax>
 		<prism-highlighter></prism-highlighter>
 		<div class="code-container">
+      <span class="source">[[sourceName]]</span>
+			<paper-icon-button id="copyButton" icon="content-copy" title="copy to clipboard" on-tap="_copyToClipboard"></paper-icon-button>
 			<pre id="output"></pre>
-			<paper-icon-button id="copyButton" icon="content-copy" title="copy to clipboard" on-tap="_copyToClipboard">
-			</paper-icon-button>
 		</div>
 
 	</template>
@@ -51,10 +67,11 @@ Copyright (c) 2016 Greencoderz. All rights reserved.
 	<script>
     Polymer({
       is: 'code-snippet',
-      
+
       properties: {
         file: String,
-        lang: String
+        lang: String,
+        sourceName: String
       },
 
       highlight: function(code, lang) {
@@ -81,7 +98,7 @@ Copyright (c) 2016 Greencoderz. All rights reserved.
           this.$.copyButton.icon = 'error';
         }
         // Return to the copy button after a second.
-        setTimeout(this._resetCopyButtonState.bind(this), 1000);
+        setTimeout(this._resetCopyButtonState.bind(this), 2000);
         selection.removeAllRanges();
         return result;
       },
