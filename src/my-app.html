@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="my-icons.html">
 
@@ -49,6 +50,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-right: auto;
       }
 
+      paper-button {
+        height: 48px;
+        font-size: 18px;
+        line-height: 18px;
+        color: var(--app-primary-color);
+        background-color: white;
+      }
+
       .drawer-list {
         margin: 0 20px;
       }
@@ -71,8 +80,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
 
-      .github-icon {
-        color: white;
+      #github {
+        text-decoration: none;
       }
     </style>
 
@@ -106,8 +115,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div main-title>Polymer Samples</div>
-            <a href="https://github.com/hunex91/polymer-samples-v2">
-              <paper-icon-button title="Open project on GitHub" class="github-icon" icon="github"></paper-icon-button>
+            <a id="github" href="https://github.com/hunex91/polymer-samples-v2" tabindex="-1">
+              <paper-button raised>GitHub</paper-button>
             </a>
           </app-toolbar>
         </app-header>
