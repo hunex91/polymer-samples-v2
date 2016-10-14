@@ -1,19 +1,7 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-material/paper-material.html">
-
 <dom-module id="my-style-2">
   <template>
     <style>
-      :host {
-        display: block;
-      }
-      paper-material {
-        padding: 16px;
-        background-color: #00BCD4;
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-      }
       .title {
         color: var(--custom-title-color, #E91E63);
       }

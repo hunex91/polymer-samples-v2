@@ -2,24 +2,12 @@
   window.Namespace = window.Namespace || {};
   const randomNamesArray = [
     'Lynetta',
-    'Ruthann',
-    'Vida',
-    'Tony',
-    'Miesha',
-    'Lorean',
-    'Freddy',
-    'Francie',
-    'Lakisha',
+    ...
     'Antonette'
   ];
   const randomColorsArray = [
     { name: 'Red' , color: '#F44336' },
-    { name: 'Cyan', color: '#00BCD4' },
-    { name: 'Amber', color: '#FFC107' },
-    { name: 'Teal', color: '#009688' },
-    { name: 'Blue', color: '#2196F3' },
-    { name: 'Orange', color: '#FF9800' },
-    { name: 'Pink', color: '#E91E63' },
+    ...
     { name: 'Purple', color: '#673AB7' }
   ];
   RandomGeneratorBehavior = {

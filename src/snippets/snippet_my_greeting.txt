@@ -1,15 +1,5 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../my-shared-styles.html">
-
 <dom-module id="my-greeting">
   <template>
-    <style include="my-shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
     <paper-input label="Your name" value="{{name}}"></paper-input>
   </template>
   <script>

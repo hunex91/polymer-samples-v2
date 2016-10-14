@@ -1,8 +1,8 @@
 <link rel="import" href="events/sample-events-4.html">
-
 <dom-module id="page-events">
   <template>
     ...
+    <sample-events-4 class="card-description"></sample-events-4>
   </template>
   <script>
     Polymer({

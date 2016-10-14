@@ -1,0 +1,17 @@
+<dom-module id="my-shared-styles">
+  <template>
+    <style>
+      ...
+      paper-button {
+        margin-left: 0px;
+        margin-right: 0px;
+        background: #2196F3;
+        color: white;
+      }
+      .red {
+        color: red;
+      }
+      ...
+    </style>
+  </template>
+</dom-module>

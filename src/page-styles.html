@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="my-shared-styles.html">
 <link rel="import" href="code-snippet.html">
 
 <link rel="import" href="styles/sample-style-1.html">
@@ -18,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="page-styles">
   <template>
+    <style include="my-shared-styles"></style>
     <style include="shared-styles">
       :host {
         display: block;
@@ -48,6 +50,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <code-snippet source-name="sample-style-3.html" file="src/snippets/snippet_style_3.txt"></code-snippet>
       <div class="horizontal-delimiter"></div>
       <code-snippet source-name="my-style-3.html" file="src/snippets/snippet_my_style_3.txt"></code-snippet>
+    </div>
+
+    <div class="card">
+      <div class="card-description">
+        <h2>Style module</h2>
+        <p>When you need to share the style across different elements you can use style modules.</p>
+      </div>
+      <div class="horizontal-delimiter"></div>
+      <code-snippet source-name="sample-events-3.html" file="src/snippets/snippet_sample_events_3.txt"></code-snippet>
+      <div class="horizontal-delimiter"></div>
+      <code-snippet source-name="my-shared-styles.html" file="src/snippets/snippet_my_shared_styles.txt"></code-snippet>
     </div>
   </template>
 

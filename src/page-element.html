@@ -10,12 +10,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="my-shared-styles.html">
 <link rel="import" href="code-snippet.html">
 
 <link rel="import" href="element/my-element.html">
 
 <dom-module id="page-element">
   <template>
+    <style include="my-shared-styles"></style>
     <style include="shared-styles">
       :host {
         display: block;
@@ -25,6 +27,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
+      <div class="card-description">
+        <h2>Element declaration</h2>
+        <p>A simple example on declaring and using a custom element.</p>
+      </div>
       <my-element class="card-description" name="John Smith" age="29"></my-element>
       <div class="horizontal-delimiter"></div>
       <code-snippet source-name="my-element.html" file="src/snippets/snippet_my_element.txt"></code-snippet>

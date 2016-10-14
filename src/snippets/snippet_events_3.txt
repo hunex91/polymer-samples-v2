@@ -1,30 +1,14 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
-<link rel="import" href="../my-shared-styles.html">
-
 <dom-module id="sample-events-3">
   <template>
-    <style include="my-shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2 class="red">[[title]]</h2>
-    <p>Imperatively adding and removing an event listener.</p>
+    ...
     <paper-button id="button" raised>Click me</paper-button>
     <paper-toast id="toast"></paper-toast>
   </template>
   <script>
     Polymer({
       is: 'sample-events-3',
-      properties: {
-        title: {
-          type: String,
-          value: 'sample-events-3',
-        },
-      },
       attached: function() {
         this.listen(this.$.button, 'tap', '_onTap');
       },

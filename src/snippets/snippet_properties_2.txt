@@ -1,16 +1,6 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../my-shared-styles.html">
-
 <dom-module id="sample-properties-2">
   <template>
-    <style include="my-shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>[[title]]</h2>
-    <p>There are multiple property types: String, Number, Boolean, Array and Object.</p>
+  ...
   </template>
   <script>
     Polymer({

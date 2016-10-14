@@ -1,18 +1,7 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../my-shared-styles.html">
-
 <dom-module id="sample-events-4">
   <template>
-    <style include="my-shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>[[title]]</h2>
-    <p>Firing custom events.</p>
+    ...
     <div>Counter: [[counter]]</div>
     <paper-icon-button icon="arrow-upward" on-tap="_onTapUp"></paper-icon-button>
     <paper-icon-button icon="arrow-downward" on-tap="_onTapDown"></paper-icon-button>
@@ -21,10 +10,6 @@
     Polymer({
       is: 'sample-events-4',
       properties: {
-        title: {
-          type: String,
-          value: 'sample-events-4',
-        },
         counter: {
           type: Number,
           value: 0

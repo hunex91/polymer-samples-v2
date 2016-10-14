@@ -1,34 +1,9 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../behaviors/behavior-1.html">
-<link rel="import" href="../my-shared-styles.html">
-
 <dom-module id="sample-dom-repeat">
   <template>
-    <style include="my-shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-      paper-material {
-        width: 256px;
-        padding: 8px;
-        margin-top: 4px;
-        margin-bottom: 4px;
-        background-color: white;
-      }
-      paper-input {
-        width: 256px;
-        margin-bottom: 8px;
-      }
-      paper-button {
-        margin-top: 16px;
-      }
-    </style>
-    <h2>[[title]]</h2>
-    <p>Example using the dom-repeat template. You can add more items and you can filter by typing color names in the search box.</p>
     <div class="content">
       <paper-input label="Search" value="{{search}}"></paper-input>
       <template is="dom-repeat" items="{{colors}}" filter="{{_computeFilter(search)}}">
@@ -44,16 +19,11 @@
       is: 'sample-dom-repeat',
       behaviors: [ Namespace.RandomGeneratorBehavior ],
       properties: {
-        title: {
-          type: String,
-          value: 'sample-dom-repeat',
-        },
         colors: {
           type: Array,
           value: function() { return [
             { name: 'Red', color: '#F44336' },
-            { name: 'Orange', color: '#FF9800' },
-            { name: 'Blue', color: '#2196F3' },
+            ...
             { name: 'Purple', color: '#673AB7' }
           ]; }
         }

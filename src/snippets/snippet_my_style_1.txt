@@ -1,12 +1,7 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-material/paper-material.html">
-
 <dom-module id="my-style-1">
   <template>
     <style>
-      :host {
-        display: block;
-      }
       paper-material {
         padding: 16px;
         font-size: 20px;
