@@ -5,7 +5,7 @@ The app was scaffolded using the Polymer CLI.
 
 ### Live demo
 
-You can find the demo app at https://polymer-samples.firebaseapp.com
+You can find the demo app at: https://polymer-samples.firebaseapp.com
 
 ### Setup
 
